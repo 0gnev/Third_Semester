@@ -9,8 +9,8 @@
             "command": "/usr/bin/g++",
             "args": [
                 "-g",
-                "main.cpp",
-                "LorentzVector.cpp",
+                "/home/doc/Documents/Code/LorentzVector/main.cpp",
+                "/home/doc/Documents/Code/LorentzVector/LorentzVector.cpp",
                 "-o",
                 "${fileDirname}/${fileBasenameNoExtension}"
             ],
