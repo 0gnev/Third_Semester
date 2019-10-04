@@ -1,7 +1,7 @@
 #include "LorentzVector.h"
 #include <math.h>
 #include <iostream>
-using namespace std;
+
 
 LorentzVector::LorentzVector()
 {
@@ -85,22 +85,41 @@ void LorentzVector::print() const
 }
 void LorentzVector::operator+=(const LorentzVector &other)
 {
+    x_data += other.x_data;
+    y_data += other.y_data;
+    z_data += other.z_data;
+    t_data += other.t_data;
 }
 void LorentzVector::operator-=(const LorentzVector &other)
 {
+    x_data -= other.x_data;
+    y_data -= other.y_data;
+    z_data -= other.z_data;
+    t_data -= other.t_data;
 }
-void LorentzVector::operator*=(const LorentzVector &other)
+void LorentzVector::operator*=(double a)
 {
+    x_data *= a;
+    y_data *= a;
+    z_data *= a;
+    t_data *= a;
 }
 LorentzVector LorentzVector::operator+(const LorentzVector &other) const
 {
+    LorentzVector res(x_data + other.x_data, y_data + other.y_data, z_data + other.z_data, t_data + other.t_data);
+    return res;
 }
 LorentzVector LorentzVector::operator-(const LorentzVector &other) const
 {
+    LorentzVector res(x_data - other.x_data, y_data - other.y_data, z_data - other.z_data, t_data - other.t_data);
+    return res;
 }
-LorentzVector operator*(const LorentzVector &lv, double a)
+LorentzVector operator*(const LorentzVector &other, double a)
 {
+    LorentzVector res(other.x_data * a, other.y_data * a, other.z_data * a, other.t_data * a);
+    return res;
 }
-std::ostream &operator<<(std::ostream &, const LorentzVector &)
+ostream &operator<<(ostream &, const LorentzVector &vl)
 {
+    cout << "Vector " << typeid(&vl).name() << " (" << vl.x() << ", " << vl.y() << ", " << vl.z() << ", " << vl.t() << endl;
 }

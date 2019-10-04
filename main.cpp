@@ -4,7 +4,7 @@ using namespace std;
 
 int main()
 {
-    std::ostream &operator<<(std::ostream &, const LorentzVector &);
+    ostream &operator<<(ostream &, const LorentzVector &);
     LorentzVector vector1;
     return 0;
 }
