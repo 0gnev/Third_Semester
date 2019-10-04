@@ -21,6 +21,14 @@ public:
     double dot(const LorentzVector &other) const;
     void read();
     void print() const;
+    void operator+=(const LorentzVector &other);
+    void operator-=(const LorentzVector &other);
+    void operator*=(const LorentzVector &other);
+    LorentzVector operator+(const LorentzVector &other) const;
+    LorentzVector operator-(const LorentzVector &other) const;
+    friend LorentzVector operator*(const LorentzVector &lv, double a);
+    friend std::ostream &operator<<(std::ostream &, const LorentzVector &);
+    
 
 private:
     double x_data, y_data, z_data, t_data;
