@@ -2,7 +2,6 @@
 #include <math.h>
 #include <iostream>
 
-
 LorentzVector::LorentzVector()
 {
     x_data = 0;
@@ -70,7 +69,11 @@ LorentzVector LorentzVector::mul(double a) const
 }
 void LorentzVector::zboost(double beta)
 {
-    z_data += beta;
+    if (beta >=300000000){
+        return;
+    } 
+    z_data = (z_data - beta * t_data) / sqrt(1 - beta * beta / c_speed / c_speed);
+    t_data = (t_data - (beta / 300000000 / 300000000) * z_data) / sqrt(1 - beta * beta / 300000000 / 300000000);
 }
 double LorentzVector::dot(const LorentzVector &other) const
 {
@@ -81,7 +84,7 @@ void LorentzVector::read()
 }
 void LorentzVector::print() const
 {
-    cout << "Vector " << typeid(*this).name() << " (" << x() << ", " << y() << ", " << z() << ", " << t()<<")" << endl;
+    cout << "Vector " << typeid(*this).name() << " (" << x() << ", " << y() << ", " << z() << ", " << t() << ")" << endl;
 }
 void LorentzVector::operator+=(const LorentzVector &other)
 {
@@ -119,7 +122,28 @@ LorentzVector operator*(const LorentzVector &other, double a)
     LorentzVector res(other.x_data * a, other.y_data * a, other.z_data * a, other.t_data * a);
     return res;
 }
-ostream &operator<<(ostream &, const LorentzVector &vl)
+ostream &operator<<(ostream &out, const LorentzVector &vl)
 {
-    cout << "Vector " << typeid(&vl).name() << " (" << vl.x() << ", " << vl.y() << ", " << vl.z() << ", " << vl.t()<<")" << endl;
+    out << "Vector " << typeid(&vl).name() << " (" << vl.x() << ", " << vl.y() << ", " << vl.z() << ", " << vl.t() << ")" << endl;
+    return out;
+}
+istream &operator>>(istream &in, LorentzVector &vl)
+{
+    double x, y, z, t;
+    cout << "Enter 4 values";
+    cout << endl
+         << "x data: ";
+    in >> x;
+     cout << endl
+         << "y data: ";
+    in >> y;
+     cout << endl
+         << "z data: ";
+    in >> z;
+     cout << endl
+         << "z data: ";
+    in >> z;
+    
+
+    return in;
 }

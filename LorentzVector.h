@@ -1,6 +1,7 @@
 #pragma once
 #include <iostream>
 using namespace std;
+#define c_speed 300000000
 class LorentzVector
 {
 public:
