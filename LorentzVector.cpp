@@ -81,7 +81,7 @@ void LorentzVector::read()
 }
 void LorentzVector::print() const
 {
-    cout << "Vector " << typeid(*this).name() << " (" << x() << ", " << y() << ", " << z() << ", " << t() << endl;
+    cout << "Vector " << typeid(*this).name() << " (" << x() << ", " << y() << ", " << z() << ", " << t()<<")" << endl;
 }
 void LorentzVector::operator+=(const LorentzVector &other)
 {
@@ -121,5 +121,5 @@ LorentzVector operator*(const LorentzVector &other, double a)
 }
 ostream &operator<<(ostream &, const LorentzVector &vl)
 {
-    cout << "Vector " << typeid(&vl).name() << " (" << vl.x() << ", " << vl.y() << ", " << vl.z() << ", " << vl.t() << endl;
+    cout << "Vector " << typeid(&vl).name() << " (" << vl.x() << ", " << vl.y() << ", " << vl.z() << ", " << vl.t()<<")" << endl;
 }
