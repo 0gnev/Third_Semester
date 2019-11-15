@@ -53,5 +53,5 @@ void ArrayStat::print()
 size_t ArrayStat::countLarger(int a)
 {
 
-    cout << count_if(array.begin(), array.end(),[a](int i){return i>a;} ) << endl;
+    cout << countif(array.begin(), array.end(), ) << endl;
 }

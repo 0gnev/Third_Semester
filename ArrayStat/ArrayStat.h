@@ -2,6 +2,8 @@
 #include <fstream>
 #include <string>
 #include <vector>
+#include <algorithm>
+#include <numeric>
 using namespace std;
 
 class ArrayStat {
