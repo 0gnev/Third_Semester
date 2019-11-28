@@ -10,7 +10,7 @@
             "args": [
                 "-g",
                 "${file}",
-                "/home/doc/Documents/Code/Third_Semester/BraceCheker/BraceCheker.cpp",
+                "/home/doc/Documents/Code/Third_Semester/BraceChecker/BraceChecker.cpp",
                 "-o",
                 "${fileDirname}/${fileBasenameNoExtension}"
             ],
