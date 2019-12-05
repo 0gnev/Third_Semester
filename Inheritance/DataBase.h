@@ -5,7 +5,10 @@
 #include "shape.h"
 #include "square.h"
 #include "circle.h"
+using namespace std;
+
 class DataBase
+
 {
 public:
     DataBase(string filename);
@@ -14,6 +17,5 @@ public:
     void Sort_database_by_area();
 
 private:
-    vector<shape *>
-        my_figures;
+    vector<shape *> my_figures;
 };

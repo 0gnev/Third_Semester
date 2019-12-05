@@ -12,15 +12,19 @@ DataBase::DataBase(string filename)
     while (!test.eof())
     {
         getline(test, str);
-        if (str[1] == 'c')
+        if (str[0] == 'c')
         {
-            double temp = stod(str);
+            str.erase(0, 2);
+            std::string::size_type sz;
+            double temp = stod(str, &sz);
             circle *c = new circle(temp);
             my_figures.push_back(c);
         }
-        else if (str[1] == 's')
+        else if (str[0] == 's')
         {
-            double temp = stod(str);
+            str.erase(0, 2);
+            std::string::size_type sz;
+            double temp = stod(str, &sz);
             square *c = new square(temp);
             my_figures.push_back(c);
         }
@@ -43,7 +47,14 @@ void DataBase::Print_database()
         my_figures[i]->print();
     }
 }
+struct comp
+{
+    inline bool operator()(shape *struct1, shape *struct2)
+    {
+        return (struct1->area() < struct2->area());
+    }
+};
 void DataBase::Sort_database_by_area()
 {
-    sort(my_figures.begin(), my_figures.end());
+    sort(my_figures.begin(), my_figures.end(), comp());
 }
