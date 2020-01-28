@@ -1,5 +1,4 @@
 #include "circle.h"
-
 circle::circle(double r)
 {
     radius = r;
