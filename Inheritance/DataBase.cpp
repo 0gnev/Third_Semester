@@ -30,7 +30,6 @@ DataBase::DataBase(string filename)
         }
     }
 }
-
 double DataBase::CalcArea()
 {
     double full_area = 0;
