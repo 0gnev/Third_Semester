@@ -1,6 +1,4 @@
-
 #include "ArrayStat.h"
-
 ArrayStat::ArrayStat()
 {
     ifstream test;
@@ -52,6 +50,5 @@ void ArrayStat::print()
 }
 size_t ArrayStat::countLarger(int a)
 {
-
     cout << count_if(array.begin(), array.end(),[a](int i){return i>a;} ) << endl;
 }
