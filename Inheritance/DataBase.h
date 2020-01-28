@@ -6,9 +6,7 @@
 #include "square.h"
 #include "circle.h"
 using namespace std;
-
 class DataBase
-
 {
 public:
     DataBase(string filename);
